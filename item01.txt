@@ -1,0 +1,17 @@
+estoque={}
+
+escolha=1
+while escolha!=0:
+    escolha=int(input("faça sua escolha:"))
+    if escolha==1:
+        produto=input("nome do produto:")
+        while produto in estoque:
+            print ("este produto já existe")
+            produto=input("nome do produto:")
+        inicial=int(input("quantidade:"))
+        while inicial<0:
+            print ("a quantidade inicial não pode ser negativa")
+            inicial=int(input("quantidade:"))
+        caract={"quantidade":inicial}
+        estoque[produto]=caract
+        print ("{0} {1}s foram adicionadas".format(inicial, produto))
