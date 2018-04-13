@@ -15,3 +15,12 @@ while escolha!=0:
         caract={"quantidade":inicial}
         estoque[produto]=caract
         print ("{0} {1}s foram adicionadas".format(inicial, produto))
+    escolha = int(input('faça sua escolha:'))
+    elif escolha == 3:
+        produto=input('digite o nome do produto - ')
+        if produto in estoque:
+            qnt = int(input('quantidade do produto - '))
+            estoque[produto]['quantidade'] += qnt
+            print ('novo estoque de {0} é {1}'.format(produto,estoque[produto]['quantidade']))
+        else:
+            print ('elemento não encontrado')
