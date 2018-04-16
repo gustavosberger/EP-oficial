@@ -22,7 +22,7 @@ while escolha!=0:
         estoque[produto]=caracteristica
         print ("{0} {1}s foram adicionadas".format(quantidade_inicial, produto))
         
-#opção de menu 2  
+#opção de menu 3
     elif escolha == 3:
         produto=input('digite o nome do produto - ')
         if produto in estoque:
