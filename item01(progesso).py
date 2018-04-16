@@ -1,11 +1,3 @@
-#menuzinho das opções
-
-print(1-adicionar produto)
-print(2-remover produto)
-print(3-modificar produto)
-print(4-mostrar estoque completo)
-
-
 #estoque da loja
 estoque={}
 
