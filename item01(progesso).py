@@ -1,9 +1,9 @@
-#menuzinho das opÁıes
-
-print(1-adicionar produto)
-print(2-remover produto)
-print(3-modificar produto)
-print(4-mostrar estoque completo)
+Ôªø#menuzinho das op√ß√µes
+print("0- sair")
+print("1-adicionar produto")
+print("2-remover produto")
+print("3-modificar produto")
+print("4-mostrar estoque completo")
 
 
 #estoque da loja
@@ -12,31 +12,51 @@ estoque={}
 #definindo escolha do menu
 escolha=1
 
-#enquanto n„o escolherem 0, o programa fica repetindo
-while escolha!=0:
-    escolha=int(input("faÁa sua escolha:"))
+#enquanto n√£o escolherem 0, o programa fica repetindo
+while escolha!="0":
+    escolha=input("fa√ßa sua escolha:")
     
-#opÁ„o de menu 1
-    if escolha==1:
+#op√ß√£o de menu 1
+    if escolha=="1":
         produto=input("nome do produto:")
         while produto in estoque:
-            print ("este produto j· existe")
+            print ("este produto j√° existe")
             produto=input("nome do produto:")
         quantidade_inicial=int(input("quantidade:"))
         while quantidade_inicial<0:
-            print ("a quantidade inicial n„o pode ser negativa")
+            print ("a quantidade inicial n√£o pode ser negativa")
             quantidade_inicial=int(input("quantidade:"))
         caracteristica={"quantidade":quantidade_inicial}
         estoque[produto]=caracteristica
         print ("{0} {1}s foram adicionadas".format(quantidade_inicial, produto))
+
+#op√ß√£o de menu 2
+    elif escolha == "2":
+        remover= input("Digite o nome do produto que deseja remover: ")
+        while remover not in estoque:
+            print ("Produto n√£o encontrado")
+            remover = input ("Digite um produto v√°lido: ")
+        if remover in estoque:
+            del estoque [remover]
+            print ("{0} foi removido".format(remover))
         
-#opÁ„o de menu 3
-    elif escolha == 3:
-        produto=input('digite o nome do produto - ')
-        if produto in estoque:
-            valor_adicional = int(input('quantidade do produto - '))
-            estoque[produto]['quantidade'] += valor_adicional
-            print ('novo estoque de {0} È {1}'.format(produto,estoque[produto]['quantidade']))
-        else:
-            print ('elemento n„o encontrado')
+#op√ß√£o de menu 3
+    elif escolha == "3":
+        produto=input('digite o nome do produto: ')
+        while produto not in estoque:
+            print ('elemento n√£o encontrado')
+            produto= input ("digite o nome do produto: ")
+        valor_adicional = int(input('quantidade do produto: '))
+        estoque[produto]['quantidade'] += valor_adicional
+        print ('novo estoque de {0} √© {1}'.format(produto,estoque[produto]['quantidade']))
         
+
+#op√ß√£o de menu 4
+    elif escolha == "4":
+        print("Estoque:")
+        for chave, valor in estoque.items():
+            print ("{0} : {1}".format(chave,valor["quantidade"]))
+    elif escolha != "0":
+        print ("Comando inv√°lido")
+
+print ("At√© a pr√≥xima, amigo!")
