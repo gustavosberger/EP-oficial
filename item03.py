@@ -37,7 +37,7 @@ while escolha!="0":
             preco = float(input('valor unitario:'))
         caracteristica={"quantidade":quantidade_inicial,'valor unitario':preco}
         estoque[produto]=caracteristica
-        print ("{0} {1}s foram adicionadas, custando {2} reais cada".format(quantidade_inicial, produto,preco))
+        print ("{0} {1}s foram adicionadas, custando R${2} reais cada".format(quantidade_inicial, produto,preco))
 
 #opção de menu 2
     elif escolha == "2":
@@ -65,14 +65,14 @@ while escolha!="0":
         elif opcao_mudanca=="2":
             valor_adicional = int(input('quantidade do produto: '))
             estoque[produto]['quantidade'] += valor_adicional
-        print ('novo estoque de {0} é {1}, e seu novo preço é de {2}'.format(produto,estoque[produto]['quantidade'],estoque[produto]['valor unitario']))
+        print ('novo estoque de {0} é {1}, e seu novo preço é de R${2}'.format(produto,estoque[produto]['quantidade'],estoque[produto]['valor unitario']))
         
 
 #opção de menu 4
     elif escolha == "4":
         print("Estoque:")
         for chave, valor in estoque.items():
-            print ("{0} : {1} , {2}".format(chave,valor["quantidade"], valor ['valor unitario']))
+            print ("{0} : {1} , R${2}".format(chave,valor["quantidade"], valor ['valor unitario']))
     elif escolha != "0":
         print ("Comando inválido")
 
