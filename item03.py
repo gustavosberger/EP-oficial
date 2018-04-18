@@ -11,6 +11,8 @@ print("1-adicionar produto")
 print("2-remover produto")
 print("3-modificar produto")
 print("4-mostrar estoque completo")
+print("5-Produtos que estão em falta")
+print("6-valor monetário total do estoque")
 
 
 #estoque da loja
@@ -73,7 +75,31 @@ while escolha!="0":
         print("Estoque:")
         for chave, valor in estoque.items():
             print ("{0} : {1} , {2}".format(chave,valor["quantidade"], valor ['valor unitario']))
+    
+#opção de menu 5
+    elif escolha == "5":
+        print("Produtos que estão em falta no estoque:")
+        lista1=[]
+        for chave,valor in estoque.items():
+            if valor["quantidade"] < 0 :
+                print (chave)
+        
+
+#opção de menu 6
+    elif escolha == "6":
+        listinha=[]
+        print("valor monetário total do estoque:")
+        for valor in estoque.values():
+            if valor["quantidade"] <= 0:
+                listinha.append(0)
+            elif valor["quantidade"] > 0:
+                v = valor["quantidade"] * valor["valor unitario"]
+                listinha.append(v)
+        print('{0} R$'.format(sum(listinha)))
+    
+
+
+#final
     elif escolha != "0":
         print ("Comando inválido")
-
 print ("Até a próxima, amigo!")
